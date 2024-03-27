@@ -1,10 +1,13 @@
 [core]
 	editor = nvim
+	pager = delta
 [diff]
 	tool = nvimdiff
 	guitool = meld
+	colorMoved = default
 [merge]
 	tool = nvimdiff
+	; conflictstyle = diff3
 	guitool = meld
 	renames = true
 	directoryRenames = true
@@ -24,3 +27,11 @@
 	addIgnoredFile = true
 [credential]
 	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	line-numbers = true
+	dark = true
+	side-by-side = true
+
