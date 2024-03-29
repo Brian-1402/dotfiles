@@ -60,7 +60,7 @@ return {
 		event = "VeryLazy",
 		init = function()
 			vim.o.timeout = true
-			vim.o.timeoutlen = 2000
+			vim.o.timeoutlen = 1000
 		end,
 		opts = {
 			-- your configuration comes here
@@ -446,7 +446,14 @@ return {
 			-- local Path = require('plenary.path')
 			local config = require('session_manager.config')
 			require('session_manager').setup({
-				autoload_mode = config.AutoloadMode.CurrentDir
+				autoload_mode = config.AutoloadMode.CurrentDir,
+				autosave_ignore_dirs = {
+					[[C:\Users\brian\scoop\apps\neovide\current]],
+					[[C:\Users\brian\scoop\apps\nvy\current]],
+					[[C:\WINDOWS\system32]],
+				},
+				-- autosave_ignore_buftypes = {"terminal", "term"},
+				autosave_ignore_filetypes = {"terminal", "term"},
 				  -- autosave_only_in_session = true, -- Always autosaves session. If true, only autosaves after a session is active.
 			})
 
@@ -483,10 +490,9 @@ return {
 		end
 	},
 
+	-- Tool for better appearances of diffs. Already supports git diff capabilities as commands.
 	{
-		'akinsho/toggleterm.nvim',
-		version = "*",
-		config = true,
+		"sindrets/diffview.nvim",
+		event = "VeryLazy",
 	},
-
 }
